@@ -24,3 +24,5 @@ python3 manage.py createsuperuser
 python3 manage.py makemigrations #to create migrations for new model data,once done you can run migrate command
 
 
+reference project: https://github.com/zappycode/django3-todowoo-project
+
