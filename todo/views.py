@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from django.db import IntegrityError
 from django.contrib.auth import login, logout, authenticate
 from .forms import TodoForm
+from .models import Todo
 
 # Create your views here.
 
@@ -48,7 +49,8 @@ def logoutuser(request):
 
 			
 def currenttodos(request):
-	return render(request,'todo/currenttodos.html')
+	todos = Todo.objects.filter(user=request.user,datecompleted__isnull=True) #Todo.objects.all()
+	return render(request,'todo/currenttodos.html',{'todos':todos})
 
 def createtodo(request):
 	if request.method=='GET':
@@ -62,4 +64,3 @@ def createtodo(request):
 			return redirect('currenttodos')
 		except ValueError:
 			return render(request, 'todo/createtodo.html', {'form': TodoForm(),'error':'Bad data passed in'})
-			
