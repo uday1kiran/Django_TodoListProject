@@ -1,3 +1,6 @@
+{% extends 'todo/base.html' %}
+
+{% block content %}
 <h1>Sign Up</h1>
 
 <h2> {{ error }} </h2>
@@ -8,3 +11,5 @@
 {{ form.as_p}}<!-- as_p is for styling spaces, if not provided it will render but without spaces -->
 <button type="submit">Sign Up</button>
 </form>
+
+{% endblock %}
