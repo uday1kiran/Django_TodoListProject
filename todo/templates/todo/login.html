@@ -1,0 +1,15 @@
+{% extends 'todo/base.html' %}
+
+{% block content %}
+<h1>Login</h1>
+
+<h2> {{ error }} </h2>
+
+
+<form method="POST">
+{% csrf_token %}<!-- else we will get a token error for security related to formsduring submit of form -->
+{{ form.as_p}}<!-- as_p is for styling spaces, if not provided it will render but without spaces -->
+<button type="submit">Login</button>
+</form>
+
+{% endblock %}
