@@ -2,6 +2,9 @@
 
 Logged In as {{ user.username}}
 
+    <a href="{%  url 'create' %}">Create</a>
+    <a href="{%  url 'currenttodos' %}">Current</a>
+    <a href="{%  url 'completedtodos' %}">Completed</a>
 <!-- <a href="{% url 'logoutuser' %}"> Logout </a> -->
 <!-- with a tage for logout link, we are getting error as no value returned,so use a form for that -->
 <form action="{% url 'logoutuser' %}" method="POST">
