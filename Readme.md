@@ -17,3 +17,6 @@ INSTALLED_APPS = [
 
 to migrate previous code in installed_apps like auth,etc:
 python3 manage.py migrate
+
+to get admin user to access admin page.
+python3 manage.py createsuperuser
