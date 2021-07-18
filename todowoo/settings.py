@@ -74,21 +74,20 @@ WSGI_APPLICATION = 'todowoo.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
+import environ
+env = environ.Env()
+environ.Env.read_env()
+
 DATABASES = {
 
     'default': {
+'ENGINE': 'django.db.backends.postgresql',
+'NAME': env("DATABASE_NAME"),
+        'USER': env("DATABASE_USER"),
+        'PASSWORD': env("DATABASE_PASSWORD"),
+        'HOST': env("DATABASE_HOST"),
+        'PORT': env("DATABASE_PORT"),
 
-        'ENGINE': 'django.db.backends.postgresql',
-
-        'NAME': 'testdb',
-
-        'USER': 'admin',
-
-        'PASSWORD': 'mysecretpassword',
-
-        'HOST': '35.83.231.63',
-
-        'PORT': '30014',
 
     }
 
